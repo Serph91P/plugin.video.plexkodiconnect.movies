@@ -9,8 +9,8 @@ ROOT = Path(__file__).resolve().parents[1]
 ADDON_ID = "plugin.video.plexkodiconnect.movies"
 EXPECTED_MEMBERS = {f"{ADDON_ID}/{name}" for name in ("addon.xml", "changelog.txt", "default.py", "icon.png")}
 PACKAGE_SHA = "e0c07e492599658d2ecaf0a188de09b2abdb6375"
-NOTIFIER_SHA = "c4c17149a2e8da28b59461b75bd1737bd31eb6e7"
-STALE_NOTIFIER_SHA = "5afd718564c0d55a914978e43aafd34c92a53029"
+NOTIFIER_SHA = "394c4ffcef574a602a7c640565b5d6f705e9a16d"
+STALE_NOTIFIER_SHA = "c4c17149a2e8da28b59461b75bd1737bd31eb6e7"
 
 
 class PublicationContractTests(unittest.TestCase):
