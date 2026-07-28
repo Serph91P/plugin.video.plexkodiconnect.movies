@@ -9,7 +9,8 @@ ROOT = Path(__file__).resolve().parents[1]
 ADDON_ID = "plugin.video.plexkodiconnect.movies"
 EXPECTED_MEMBERS = {f"{ADDON_ID}/{name}" for name in ("addon.xml", "changelog.txt", "default.py", "icon.png")}
 PACKAGE_SHA = "e0c07e492599658d2ecaf0a188de09b2abdb6375"
-NOTIFIER_SHA = "d7434c26c4d49d42496154dd58ae78e1da6f49d6"
+NOTIFIER_SHA = "394c4ffcef574a602a7c640565b5d6f705e9a16d"
+STALE_NOTIFIER_SHA = "c4c17149a2e8da28b59461b75bd1737bd31eb6e7"
 
 
 class PublicationContractTests(unittest.TestCase):
@@ -55,6 +56,7 @@ class PublicationContractTests(unittest.TestCase):
         release = (ROOT / ".github/workflows/make-release.yml").read_text()
         self.assertIn(f"reusable-addon-package.yml@{PACKAGE_SHA}", validations)
         self.assertIn(f"reusable-notify-repository.yml@{NOTIFIER_SHA}", notifier)
+        self.assertNotIn(f"reusable-notify-repository.yml@{STALE_NOTIFIER_SHA}", notifier)
         self.assertIn("workflow_dispatch:", validations)
         self.assertIn("workflow_run:", notifier)
         self.assertIn("workflow_dispatch", notifier)
